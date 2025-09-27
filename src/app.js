@@ -1,22 +1,18 @@
 const express = require("express");
-
+const { adminAuth } = require("./middlewares/auth")
+const { userAuth } = require("./middlewares/auth")
 const app = express();
 
+app.use("/admin", adminAuth)
+app.use("/user", userAuth)
+app.use("/admin/getAllData",
+    (req, res) => {
+        res.send("Get AllData");
+    })
+app.use("/user/getAllUserData", (req, res) =>{
+    res.send("Fetched User Data");
+})
 
-// Request Handler
-
-
-app.use("/test", (req, res) => {
-    res.send("Hello test page from the server!")
-});
-
-app.use("/hello", (req, res) => {
-    res.send("Hello Hello page from the server!")
-});
-
-app.use((req, res) => {
-    res.send("Hello from the server! ")
-});
-app.listen(3000, () =>{
+app.listen(3000, () => {
     console.log("Server Is Up");
 });

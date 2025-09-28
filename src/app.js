@@ -1,18 +1,17 @@
 const express = require("express");
-const { adminAuth } = require("./middlewares/auth")
-const { userAuth } = require("./middlewares/auth")
+
 const app = express();
 
-app.use("/admin", adminAuth)
-app.use("/user", userAuth)
-app.use("/admin/getAllData",
-    (req, res) => {
-        res.send("Get AllData");
-    })
-app.use("/user/getAllUserData", (req, res) =>{
-    res.send("Fetched User Data");
-})
+app.use("/getUserData", (req, res) =>{
+    throw new Error("dweddewd");
+    res.send("User Data Send");
+});
 
+app.use("/", (err, req, res, next) => {
+    if (err){
+        res.status(500).send("Something went wrong!")
+    }
+})
 app.listen(3000, () => {
     console.log("Server Is Up");
 });

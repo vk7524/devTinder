@@ -4,8 +4,8 @@
   "description": "tinder for devs",
   "main": "index.js",
   "scripts": {
-    "start" :"node src/app.js",
-    "dev" : "nodemon src/app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   "author": "Vivek dubey",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.18.3",
+    "validator": "^13.7.0"
   }
 }

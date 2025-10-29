@@ -63,8 +63,8 @@ const userSchema = mongoose.Schema({
    skills: {
       type: [String]
    }
-},
-   { timestamps: true },);
+}, { timestamps: true },);
+
 userSchema.methods.getJWT = async function () {
 
    const user = this;

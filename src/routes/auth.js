@@ -1,6 +1,6 @@
 const express = require('express');
 const authRouter = express.Router();
-const validateSignUpData = require("../utils/validation");
+const {validateSignUpData} = require("../utils/validation");
 const User = require("../models/user")
 const bcrypt = require('bcrypt');
 // const app = express();
@@ -37,7 +37,7 @@ authRouter.post("/login", async (req, res) => {
             // const token = await jwt.sign({ _id: user._id }, "Dev@tinder123",{ expiresIn: '0d' })
             const token = await user.getJWT();
             res.cookie("token", token)
-            res.send("User Loggedin Successfully!")
+            res.send({message:"User Loggedin Successfully!", user})
         } else {
             throw new Error("Invalid Credentials!")
         }

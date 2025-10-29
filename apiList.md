@@ -1,4 +1,4 @@
- **DevTinder APIs**
+/. **DevTinder APIs**
 
 <!-- authRouter APIs -->
  `POST /signup`
@@ -13,15 +13,14 @@
 
 <!-- connectionRequestRouter APIs -->
 
- `POST /request/send/interested/:userId`
- `POST /request/send/ignored/:userId`
- `POST /request/review/accepted/:requestId`
- `POST /request/review/rejected/:requestId`
+ <!-- `POST /request/send/interested/:userId` -->
+ `POST /request/send/:status/:userId`          //"ignored", "interested"
+ `POST /request/review/:status/:requestId`     // ""accepted", "rejected"
+ 
 
 <!-- userRouter APIs -->
-
+ `GET user/requests`
  `GET user/connections`
- `GET user/requests/received`
  `GET user/feed` — Gets profiles of other users on the platform
 
 
